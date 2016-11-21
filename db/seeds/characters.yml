@@ -1,40 +1,40 @@
 characters:
   -
-    id: 1
     name: '天海春香'
+    phonetic: 'あまみはるか'
   -
-    id: 2
     name: '如月千早'
+    phonetic: 'きさらぎちはや'
   -
-    id: 3
     name: '萩原雪歩'
+    phonetic: 'はぎわらゆきほ'
   -
-    id: 4
     name: '高槻やよい'
+    phonetic: 'たかつきやよい'
   -
-    id: 5
     name: '秋月律子'
+    phonetic: 'あきづきりつこ'
   -
-    id: 6
     name: '水瀬伊織'
+    phonetic: 'みなせいおり'
   -
-    id: 7
     name: '三浦あずさ'
+    phonetic: 'みうらあずさ'
   -
-    id: 8
     name: '双海亜美'
+    phonetic: 'ふたみあみ'
   -
-    id: 9
     name: '双海真美'
+    phonetic: 'ふたみまみ'
   -
-    id: 10
     name: '菊地真'
+    phonetic: 'きくちまこと'
   -
-    id: 11
     name: '星井美希'
+    phonetic: 'ほしいみき'
   -
-    id: 12
     name: '我那覇響'
+    phonetic: 'がなはひびき'
   -
-    id: 13
     name: '四条貴音'
+    phonetic: '四条貴音'
