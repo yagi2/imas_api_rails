@@ -11,6 +11,7 @@ class CharactersController < ApplicationController
   # GET /characters/1
   def show
     @characters = Character.where("name like ?", "%" + params[:name] + "%")
+    @character = @characters.where("name like ?", "%" + params[:pre] + "%")
 
     if @characters.nil? || @character == "null"
       render json: []
