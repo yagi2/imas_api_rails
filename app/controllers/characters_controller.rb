@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :update, :destroy]
+  before_action :set_character, only: [:update, :destroy]
 
   # GET /characters
   def index
@@ -10,7 +10,13 @@ class CharactersController < ApplicationController
 
   # GET /characters/1
   def show
-    render json: @character
+    @characters = Character.where("name like ?", "%" + params[:name] + "%")
+
+    if @characters.nil? || @character == "null"
+      render json: []
+    else
+      render json: @characters
+    end
   end
 
   # POST /characters
@@ -41,7 +47,7 @@ class CharactersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_character
-      @character = Character.find(params[:id])
+      @character = Character.find(params[:name])
     end
 
     # Only allow a trusted parameter "white list" through.
