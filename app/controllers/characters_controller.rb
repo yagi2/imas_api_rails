@@ -1,23 +1,27 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:update, :destroy]
 
-  # GET /characters
+  # GET /characters?
+  # 必須パラメーター :name
   def index
+    if params[:name].blank?
+      render json: [{"error": "100", "msg": "必須パラメーターがありません", "required": {"key": "name"}}]
+    else 
+      @result = Character.where("name like ?", "%" + params[:name] + "%")
+
+      if !params[:phonetic].blank? 
+        @result = @result.where("phonetic like ?", "%" + params[:phonetic] + "%")
+      end
+
+      render json: @result
+    end
+  end
+
+  # GET /characters/
+  def show
     @characters = Character.all
 
     render json: @characters
-  end
-
-  # GET /characters/1
-  def show
-    @characters = Character.where("name like ?", "%" + params[:name] + "%")
-    @character = @characters.where("name like ?", "%" + params[:pre] + "%")
-
-    if @characters.nil? || @character == "null"
-      render json: []
-    else
-      render json: @characters
-    end
   end
 
   # POST /characters
