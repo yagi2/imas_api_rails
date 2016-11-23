@@ -9,8 +9,8 @@ class CharactersController < ApplicationController
     else 
       @result = Character.where("name like ?", "%" + params[:name] + "%")
 
-      if !params[:phonetic].blank? 
-        @result = @result.where("phonetic like ?", "%" + params[:phonetic] + "%")
+      if @result.empty?
+        @result = Character.where("phonetic like ?", "%" + params[:name] + "%")
       end
 
       render json: @result
