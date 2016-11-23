@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :characters
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/characters',        to: 'characters#index'
+  get '/characters/search', to: 'characters#search'
+  get '/characters/all',    to: 'characters#all'
 end
