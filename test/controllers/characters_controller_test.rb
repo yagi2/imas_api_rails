@@ -2,11 +2,11 @@ require 'test_helper'
 
 class CharactersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @character = characters(:one)
+    @character = characters(:haruka)
   end
 
-  test "should get index" do
-    get characters_url, as: :json
+  test "should get all" do
+    get characters_all_url, as: :json
     assert_response :success
   end
 end
