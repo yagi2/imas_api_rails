@@ -13,7 +13,7 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
 
   test "return error message when get search without required params" do
     get characters_search_url, as: :json
-    assert_response :success
+    assert_response :bad_request
     assert_match /error/, @response.body
   end
 end
