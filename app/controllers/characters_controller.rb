@@ -1,7 +1,6 @@
 class CharactersController < ApplicationController
   # GET /characters
   def index
-    head 404
   end
 
   # GET /characters/search
