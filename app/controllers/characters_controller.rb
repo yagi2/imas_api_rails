@@ -10,19 +10,17 @@ class CharactersController < ApplicationController
     if params[:name].blank?
       render json: [{"error": "100", "msg": "必須パラメーターがありません", "required": {"key": "name"}}]
     else 
-      @result = Character.where("name like ?", "%" + params[:name] + "%")
-
-      if @result.empty?
-        @result = Character.where("phonetic like ?", "%" + params[:name] + "%")
-      end
-
-      render json: @result
+      tmp = Character.where("name like ?", "%" + params[:name] + "%")
+      tmp += Character.where("phonetic like ?", "%" + params[:name] + "%")
+      
+      result = tmp.uniq
+      render json: result
     end
   end
 
   # GET /characters/all
   def all
-    @characters = Character.all
-    render json: @characters
+    characters = Character.all
+    render json: characters
   end
 end
