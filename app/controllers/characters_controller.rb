@@ -7,7 +7,7 @@ class CharactersController < ApplicationController
   # 必須パラメータ name:string
   def search
     if params[:name].blank?
-      render json: [{"error": "100", "msg": "必須パラメーターがありません", "required": {"key": "name"}}]
+      render status: 400,  json: [{"error": "100", "msg": "必須パラメーターがありません", "required": {"key": "name"}}]
     else 
       tmp = Character.where("name like ?", "%" + params[:name] + "%")
       tmp += Character.where("phonetic like ?", "%" + params[:name] + "%")
