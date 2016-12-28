@@ -6,4 +6,4 @@ machine:
 
 test:
   override:
-    - rails test
+    - bundle exec rails test
